@@ -1,0 +1,169 @@
+$Header-height: 68px;
+
+.Header {
+  height: $Header-height;
+
+  .container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    width: 181%;
+    max-width: 200%;
+    overflow-x: hidden;
+    z-index: 600;
+    @include mq("tablet") {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin: 0 auto;
+      width: 62.5%;
+      max-width: 100%;
+    }
+
+  }
+  &-logo {
+    position: absolute;
+    bottom:935px;
+    z-index: 600;
+    @include mq("tablet"){
+      position: absolute;
+      bottom: 1px;
+    }
+    .img {
+      float: left;
+      width: 80%;
+      max-width: 100%;
+      @include mq("tablet") {
+
+      }
+    }
+  }
+  &-switch {
+    position: absolute;
+    max-width: 100%;
+    left: 600px;
+    bottom: 935px;
+    z-index: 600;
+    @include mq {
+      display: none;
+
+    }
+  }
+
+  &-menu {
+    pointer-events: none;
+    opacity: 0;
+    transition: .2s;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    max-width: 200%;
+    left: 0;
+    right: 0;
+    top: $Header-height;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    padding-bottom: 20px;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 20px 30px rgba(black, .2);
+    .Header.menu-show & {
+      opacity: 1;
+      //  transform: translateX(-50%);
+      pointer-events: auto;
+      display: flex;
+      position: absolute;
+      z-index: 5;
+    }
+
+    @include mq("tablet") {
+      pointer-events: auto;
+      opacity: 1;
+      //transform: translateX(-50%);
+      transition: 0s;
+      margin-left: auto;
+      flex-direction: row;
+      position: relative;
+      width: 800px;
+      top: 1px;
+      left: 300px;
+      box-shadow: none;
+      background-color: transparent;
+      padding-right: 0;
+      padding-left: 0;
+      padding-bottom: 0;
+    }
+
+
+    &-user {
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include mq("tablet") {
+        flex-direction: row;
+      }
+
+      a {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: $finger-size;
+
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+
+    &-property {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+
+      @include mq("tablet") {
+        margin-top: 0;
+      }
+    }
+
+    &-helper {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+
+      @include mq("tablet") {
+        margin-left: 20px;
+        margin-top: 0;
+      }
+
+      select {
+        appearance: none;
+        background-color: transparent;
+        border: 1px solid #E0E6F1;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: $finger-size;
+        border-radius: 0;
+        color: $color-navy;
+        height: $finger-size;
+
+        &:nth-child(1) {
+          border-bottom-left-radius: $border-radius;
+          border-top-left-radius: $border-radius;
+        }
+
+        &:nth-child(2) {
+          border-left-width: 0;
+          border-bottom-right-radius: $border-radius;
+          border-top-right-radius: $border-radius;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=-1.0, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<svg width="0" height="0" display="none" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <symbol id="icon-location" viewBox="0 0 32 32">
+            <path d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"></path>
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 32 32">
+            <path d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"></path>
+        </symbol>
+        <symbol id="icon-calendar" viewBox="0 0 32 32">
+            <path d="M10 12h4v4h-4zM16 12h4v4h-4zM22 12h4v4h-4zM4 24h4v4h-4zM10 24h4v4h-4zM16 24h4v4h-4zM10 18h4v4h-4zM16 18h4v4h-4zM22 18h4v4h-4zM4 18h4v4h-4zM26 0v2h-4v-2h-14v2h-4v-2h-4v32h30v-32h-4zM28 30h-26v-22h26v22z"></path>
+        </symbol>
+        <symbol id="icon-icon-menu" viewBox="0 0 32 32">
+            <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 32 32">
+            <path d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
+        </symbol>
+        <symbol id="icon-circle-down" viewBox="0 0 32 32">
+            <path d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+            <path d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+        </symbol>
+    </defs>
+</svg>
+
+<header class="Header">
+    <div class="container">
+        <a class="Header-logo" href="">
+            <img src="img/site-logo.png" alt="">
+        </a>
+        <button class="Header-switch button button-icon" type="button">
+            <svg class="icon icon-icon-menu">
+                <use xlink:href="#icon-icon-menu"></use>
+            </svg>
+        </button>
+        <div class="Header-menu">
+            <div class="Header-menu-user">
+                <a href="">Register</a>
+                <a href="">Sign In</a>
+            </div>
+            <a class="Header-menu-property button button-blue"  href="">List Your Property</a>
+            <div class="Header-menu-helper">
+                <select>
+                    <option value="en">EN</option>
+                </select>
+                <select>
+                    <option value="uah">UAH</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav class="Navigation">
+    <div class="container">
+        <a class="Navigation-item" href="">Accommodation</a>
+        <a class="Navigation-item" href="">Flights</a>
+        <a class="Navigation-item" href="">Rental cars</a>
+        <a class="Navigation-item" href="">Airport taxis</a>
+    </div>
+</nav>
+
+<main class="Main">
+    <section class="Showcase">
+        <div class="container">
+            <h1 class="Showcase-title">More deals than days in a year.</h1>
+            <h3 class="Showcase-subtitle">From cosy country homes to funky city flats</h3>
+            <div class="Search">
+                <form class="Search-form" action="">
+                    <div  class="Search-form-item">
+                        <div class="form-item" id="location">
+                            <svg class="icon icon-location form-item-icon">
+                                <use xlink:href="#icon-location"></use>
+                            </svg>
+                            <input class="text" type="text" placeholder="Berlin, Germany">
+                        </div>
+                        <p class="Search-form-item" id="dest">Destination, property name or address</p>
+                    </div>
+                    <div class="Search-form-item">
+                        <div class="form-item" id="calendar">
+                            <svg class="icon icon-calendar form-item-icon">
+                                <use xlink:href="#icon-calendar"></use>
+                            </svg>
+                            <input class="text" type="text" placeholder="Check in - Check out">
+                        </div>
+                        <p class="Search-form-item" id="when" >When?</p>
+                    </div>
+
+                    <div class="Search-form-item">
+                        <div class="form-item" id="user">
+                            <svg class="icon icon-user form-item-icon" >
+                                <use xlink:href="#icon-user"></use>
+                            </svg>
+                            <div class="select"style="width: 150px; position:relative; left:-3px;">
+                                <svg class="icon icon-circle-down select-icon">
+                                    <use xlink:href="#icon-circle-down"></use>
+                                </svg>
+                                <select>
+                                    <option value="">Guests</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Search-form-item" >
+                        <img class="Search-form-item" src="img/unlem.png" alt="unlem" id="img">
+                        <button class="button button-navy" type="button" id="lets">
+                            Let's get started
+                        </button>
+                        <div class="for-work">
+                            <label class="form-checkbox">
+                                Are you travelling for work ?
+                                <div class="checkbox">
+                                    <input type="checkbox">
+                                    <svg class="icon icon-check">
+                                        <use xlink:href="#icon-check"></use>
+                                    </svg>
+                                </div>
+
+                            </label>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="Showcase-shortlink">
+                <a href="">Find deals</a>
+                <a href="">Travel guides</a>
+                <a href="">How was your stay?</a>
+                <a href="">Holiday rentals</a>
+                <a href="">for Business</a>
+            </div>
+
+            <div class="Showcase-store">
+                <a class="Showcase-store-link apple" href=""><img src="img/apple.svg"/></a>
+                <a class="Showcase-store-link google" href=""><img src="img/google.svg"/></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="Highlights">
+        <div class="container">
+            <div class="Highlights-slider">
+                <div class="Highlights-item">
+                    <div class="Highlights-item-show"
+                         style="background-image: url('img/pağis.png'); background-size: cover; background-position: center;">
+                        <div class="content">
+                            <div class="content-yelbox"><p>price from</p><br><b>$ 2596</b></div>
+                            <h4 class="content-title">Paris</h4>
+                            <div class="content-tag">
+                                <h5 class="content-tag-title">Top reasons to visit:</h5>
+                                <div class="content-tag-list"><a class="tag-item" href=""><b>museums, </b> </a><a class="tag-item"
+                                                                                                                  href=""><b>sigtseeing, </b></a><a class="tag-item" href=""><b>culture</b></a></div>
+                            </div>
+                            <div class="content-gocadiv">
+                                <h4 class="content-gocadiv-h4">Still planning a trip to Paris?</h4>
+                                <p  class="content-gocadiv-p1">23 Oct - 24 Oct</p>
+                                <p  class="content-gocadiv-p2">/ 1 room, 2 adults</p>
+                                <div class="content-gocadiv-view">View properties</div>
+                                <img src="img/tarih.png" alt="date" class="content-gocadiv-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Highlights-item-extra">extra</div>
+                </div>
+                <div class="Highlights-item">
+                    <div class="Highlights-item-show"
+                         style="background-image: url('img/sanantonio.jpeg'); background-size: cover; background-position: center;">
+                        <div class="content">
+                            <div class="content-yelbox"><p>price from</p><br><b>$ 1039</b></div>
+                            <h4 class="content-title">San Antonio Bay</h4>
+                            <div class="content-tag">
+                                <h5 class="content-tag-title">Top reasons to visit:</h5>
+                                <div class="content-tag-list"><a class="tag-item" href=""><b>sunsets, </b> </a><a class="tag-item"
+                                                                                                                  href=""><b>beaches, </b></a><a class="tag-item" href=""><b>nightlife</b></a></div>
+                            </div>
+                            <div class="content-gocadiv">
+                                <h4 class="content-gocadiv-h4">Still planning a trip to San Antonio?</h4>
+                                <p  class="content-gocadiv-p1">23 Oct - 24 Oct</p>
+                                <p  class="content-gocadiv-p2">/ 1 room, 2 adults</p>
+                                <div class="content-gocadiv-view">View properties</div>
+                                <img src="img/tarih.png" alt="date" class="content-gocadiv-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Highlights-item-extra">extra</div>
+                </div>
+                <div class="Highlights-item">
+                    <div class="Highlights-item-show"
+                         style="background-image: url('img/ibiza.jpeg'); background-size: cover; background-position: center;">
+                        <div class="content">
+                            <div class="content-yelbox"><p>price from</p><br><b>$ 5024</b></div>
+                            <h4 class="content-title">Ibiza Town</h4>
+                            <div class="content-tag">
+                                <h5 class="content-tag-title">Top reasons to visit:</h5>
+                                <div class="content-tag-list"><a class="tag-item" href=""><b>sunsets, </b> </a><a class="tag-item"
+                                                                                                                  href=""><b>beaches, </b></a><a class="tag-item" href=""><b>nightlife</b></a></div>
+                            </div>
+                            <div class="content-gocadiv">
+                                <h4 class="content-gocadiv-h4">Still planning a trip to Ibiza?</h4>
+                                <p  class="content-gocadiv-p1">23 Oct - 24 Oct</p>
+                                <p  class="content-gocadiv-p2">/ 1 room, 2 adults</p>
+                                <div class="content-gocadiv-view">View properties</div>
+                                <img src="img/tarih.png" alt="date" class="content-gocadiv-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Highlights-item-extra">extra</div>
+                </div>
+                <div class="Highlights-item">
+                    <div class="Highlights-item-show"
+                         style="background-image: url('img/den bossa.jpeg'); background-size: cover; background-position: center;">
+                        <div class="content">
+                            <div class="content-yelbox"><p>price from</p><br><b>$ 3006</b></div>
+                            <h4 class="content-title">Playa D'en Bossa</h4>
+                            <div class="content-tag">
+                                <h5 class="content-tag-title">Top reasons to visit:</h5>
+                                <div class="content-tag-list"><a class="tag-item" href=""><b>sunsets, </b> </a><a class="tag-item"
+                                                                                                                  href=""><b>beaches, </b></a><a class="tag-item" href=""><b>nightlife</b></a></div>
+                            </div>
+                            <div class="content-gocadiv">
+                                <h4 class="content-gocadiv-h4">Still planning a trip to Playa?</h4>
+                                <p  class="content-gocadiv-p1">23 Oct - 24 Oct</p>
+                                <p  class="content-gocadiv-p2">/ 1 room, 2 adults</p>
+                                <div class="content-gocadiv-view">View properties</div>
+                                <img src="img/tarih.png" alt="date" class="content-gocadiv-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Highlights-item-extra">extra</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="Details">
+        <div class="Details-k">
+            <div class="Details-k-one">
+                <h2 class="Details-k-one-title">New deals listed daily - <br> for every budget!</h2>
+                <h3 class="Details-k-one-desc">No booking fees / Save money!</h3>
+                <h3 class="Details-k-one-link"><a href="">We Price Match</a></h3>
+            </div>
+            <div class="Details-k-two">
+                <h2 class="Details-k-two-title"><b>1,490,411</b> properties<br> worldwide</h2>
+                <h3 class="Details-k-two-desc">Including 829,668 holiday rentals in 121,734<br>destinations in 229 countries <a href="">List your property</a> </h3>
+            </div>
+            <div class="Details-k-three">
+                <h2 class="Details-k-three-title">Make changes to your<br>booking, anytime</h2>
+                <h3 class="Details-k-three-desc">You can make changes, <a> send a request<br>or cancel</a> in just a few clicks</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="MoreDest">
+        <div class="MoreDest-k">
+            <h1 class="MoreDest-k-title">More destinations</h1>
+            <div class="MoreDest-k-imgcont">
+                <div class=MoreDest-k-imgcont-box>
+                    <p><b>Playa d'en Bossa</b></p>
+                    <h3>Spain</h3>
+                    <h2>24 apartments, 10 aparthotels,<br>2 villas</h2>
+                    <img class="MoreDest-k-imgcont-box-img" src="img/pin.png" alt="pin">
+                    <img class="MoreDest-k-imgcont-box-img1" src="img/rightArrow.png" alt="right">
+                    <img class="MoreDest-k-imgcont-box-img2" src="img/TOP.png" alt="top">
+                </div>
+                <img class="MoreDest-k-imgcont-playa" src="img/playa.png">
+
+
+                <div class="MoreDest-k-imgcont-box1">
+                    <p class="MoreDest-k-imgcont-box1-par"><b>Santa Eularia des Riu</b></p>
+                    <h3 class="Moredest-k-imgcont-box1-h3">Spain</h3>
+                    <h2 class="Moredest-k-imgcont-box1-h2">37 villas, 21 apartments, 6 guest<br>houses, 5 aparthotels</h2>
+                    <img class="MoreDest-k-imgcont-box1-img" src="img/pin.png" alt="pin">
+                    <img class="MoreDest-k-imgcont-box1-img1" src="img/rightArrow.png" alt="right">
+                    <img class="MoreDest-k-imgcont-box1-img2" src="img/plane.png" alt="plane">
+                </div>
+                <img class="MoreDest-k-imgcont-santa" src="img/santa.png" alt="santa">
+
+
+                <div class="MoreDest-k-imgcont-box2">
+                    <p class="MoreDest-k-imgcont-box2-para"><b>İstanbul</b></p>
+                    <img class="MoreDest-k-imgcont-box2-img" src="img/pin.png" alt="pin">
+                    <h2 class="MoreDest-k-imgcont-box2-h2">476 apartments, 243 aparthotels,<br>56 bed and breakfasts, 54 hostels</h2>
+                    <h3 class="MoreDest-k-imgcont-box2-h3">Turkey</h3>
+                    <img class="MoreDest-k-imgcont-box2-img1" src="img/plane.png" alt="plane">
+                    <img class="MoreDest-k-imgcont-box2-img2" src="img/TOP.png" alt="top">
+                    <img class="MoreDest-k-imgcont-box2-img3" src="img/rightArrow.png" alt="right">
+                </div>
+                <img class="MoreDest-k-imgcont-istanbul" src="img/istanbul.png" alt="ıstanbul">
+
+
+
+                <div class="MoreDest-k-imgcont-box3">
+                    <p class="MoreDest-k-imgcont-box3-barce"><b>Barcelona</b></p>
+                    <img class="MoreDest-k-imgcont-box3-img" src="img/pin.png" alt="pin">
+                    <h2 class="MoreDest-k-imgcont-box3-h2">1944 apartments, 259 quest houses,<br>111 hostels, 53 bed and breakfasts</h2>
+                    <h3 class="MoreDest-k-imgcont-box3-h3">Spain</h3>
+                    <img class="MoreDest-k-imgcont-box3-img1" src="img/plane.png" alt="plane">
+                    <img class="MoreDest-k-imgcont-box3-img2" src="img/TOP.png" alt="top">
+                    <img class="MoreDest-k-imgcont-box3-img3" src="img/rightArrow.png" alt="right">
+                </div>
+                <img class="MoreDest-k-imgcont-barcelona" src="img/barcelona.png" alt="playa">
+
+
+                <div class="MoreDest-k-imgcont-box4">
+                    <p class="MoreDest-k-imgcont-box4-vien"><b>Vienna</b></p>
+                    <img class="MoreDest-k-imgcont-box4-img" src="img/pin.png" alt="pin">
+                    <h3 class="MoreDest-k-imgcont-box4-h3">Vienna</h3>
+                    <h2 class="MoreDest-k-imgcont-box4-h2">1171 apartments, 44 guest houses, 38<br>aparthotels, 34 bed and breakfasts</h2>
+                    <img class="MoreDest-k-imgcont-box4-img1" src="img/plane.png" alt="plane">
+                    <img class="MoreDest-k-imgcont-box4-img2" src="img/TOP.png" alt="top">
+                    <img class="MoreDest-k-imgcont-box4-img3" src="img/rightArrow.png" alt="right">
+                </div>
+                <img class="MoreDest-k-imgcont-vienna" src="img/viyana.png" alt="vienna">
+
+
+                <div class="MoreDest-k-imgcont-box5">
+                    <p class="MoreDest-k-imgcont-box5-h3">Show me all destinations</p>
+                    <img class="MoreDest-k-imgcont-box5-img3" src="img/rarrow.png" alt="right">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Kutu">
+        <div class="Kutu-k">
+            <div class="Kutu-k-resim1">
+                <h2 class="Kutu-k-resim1-bas">131,130,000</h2>
+                <h2 class="Kutu-k-resim1-alt">reviews</h2>
+                <p class="Kutu-k-resim1-par"><b>Real guests. Real stays. Real opinions<br>to help you make the right choice.</b></p>
+                <img class="Kutu-k-resim1-resim" src="img/ayrıntı1.png" alt="ayr">
+            </div>
+            <div class="Kutu-k-resim2">
+                <h2 class="Kutu-k-resim2-bas">We're here to help</h2>
+                <h2 class="Kutu-k-resim2-alt">24/7</h2>
+                <p class="Kutu-k-resim2-par"><b>Find answers, manage your booking<br> and more in our <a href="" style="color:#01ACEE; text-decoration: underline; text-decoration-color:#01ACEE">Help Centre</a></b>.</p>
+                <img class="Kutu-k-resim2-resim" src="img/ayrıntı2.png" alt="ayr">
+            </div>
+        </div>
+    </section>
+
+    <section class="Discover">
+        <h1 class="Discover-title">Discover</h1>
+        <div class="Discover-country">
+            <img class="Discover-country-usa" src="img/NEWYORK.png" alt="newyork">
+            <img class="Discover-country-fransa" src="img/FRANSA.png" alt="france">
+            <img class="Discover-country-italy" src="img/İTALYA.png" alt="italya">
+            <div class="Discover-country-more">
+                <h2 class="Discover-country-more-bas">More</h2>
+                <p class="Discover-country-more-par">Put tranquility, scenery and old<br>town on your to-do list during<br>your next visit to France!</p>
+                <img class="Discover-country-more-img" src="img/rarrow.png" alt="right">
+            </div>
+        </div>
+    </section>
+
+    <section class="Apart">
+        <h1 class="Apart-title">Aparthotels</h1>
+        <div class="Apart-k">
+            <div class="Apart-k-Galata">
+                <p class="Apart-k-Galata-bas">Mood of Galata Suites</p>
+                <p class="Apart-k-Galata-konum" style="opacity: 0.6">İstanbul, Turkey</p>
+                <p class="Apart-k-Galata-rev" style="opacity: 0.6">203 reviews</p>
+                <img class="Apart-k-Galata-img" src="img/pin.png" alt="pin" style="opacity: 0.3">
+                <p class="Apart-k-Galata-p1">Offering a terrace, Mood of Galata<br>Suites are located in İstanbul, 300<br>metres from Galata Tower ...</p>
+                <img class="Apart-k-Galata-galimg" src="img/galatasuit.png" alt="galata">
+                <div class="Apart-k-Galata-point">
+                    <b class="Apart-k-Galata-point-b">7.6</b>
+                    <p class="Apart-k-Galata-point-p">good</p>
+                </div>
+            </div>
+            <div class="Apart-k-Palace">
+                <img class="Apart-k-Palace-palimg" src="img/palace.png" alt="palace">
+                <p class="Apart-k-Palace-bas">A Palace Suites</p>
+                <p class="Apart-k-Palace-konum" style="opacity: 0.6">İstanbul, Turkey</p>
+                <p class="Apart-k-Palace-rev" style="opacity: 0.6">442 reviews</p>
+                <img class="Apart-k-Palace-img" src="img/pin.png" alt="pin" style="opacity: 0.3">
+                <p class="Apart-k-Palace-p1">Featuring free Wi-Fi and air<br>conditioning, A Palace Suites is<br>located in Istanbul, Cevahir ...</p>
+
+                <div class="Apart-k-Palace-point">
+                    <b class="Apart-k-Palace-point-b">8.9</b>
+                    <p class="Apart-k-Palace-point-p">Fabulous</p>
+                </div>
+            </div>
+            <div class="Apart-k-Istanbul">
+                <img class="Apart-k-Istanbul-istansuit" src="img/istanbull.png" alt="istansuit">
+                <p class="Apart-k-Istanbul-bas">Witt Istanbul Suites</p>
+                <p class="Apart-k-Istanbul-konum" style="opacity: 0.6">İstanbul, Turkey</p>
+                <p class="Apart-k-Istanbul-rev" style="opacity: 0.6">232 reviews</p>
+                <img class="Apart-k-Istanbul-img" src="img/pin.png" alt="pin" style="opacity: 0.3">
+                <p class="Apart-k-Istanbul-p1">Situated in the Cihangir district,<br>Witt Istanbul Suites offers luxurious<br>rooms and a peaceful terrace ...</p>
+
+                <div class="Apart-k-Istanbul-point">
+                    <b class="Apart-k-Istanbul-point-b">9.6</b>
+                    <p class="Apart-k-Istanbul-point-p">Exceptional</p>
+                </div>
+            </div>
+            <div class="Apart-k-Maslak">
+                <img class="Apart-k-Maslak-mas" src="img/masluck.png" alt="maslak">
+                <p class="Apart-k-Maslak-bas">Maslak Istanbul</p>
+                <p class="Apart-k-Maslak-konum" style="opacity: 0.6">İstanbul, Turkey</p>
+                <p class="Apart-k-Maslak-rev" style="opacity: 0.6">4563 reviews</p>
+                <img class="Apart-k-Maslak-img" src="img/pin.png" alt="pin" style="opacity: 0.3">
+                <p class="Apart-k-Maslak-p1">Featuring free Wi-Fi and air<br>conditioning, Somerset Maslak<br>Istanbul is situated in Istanbul ...</p>
+                <div class="Apart-k-Maslak-point">
+                    <b class="Apart-k-Maslak-point-b">8.9</b>
+                    <p class="Apart-k-Maslak-point-p">Fabulous</p>
+                </div>
+            </div>
+            <div class="Apart-k-all">
+                <p class="Apart-k-all-p">All aparthotels</p>
+                <img class="Apart-k-all-image" src="img/uarrow.png" alt="right">
+            </div>
+            <hr class="Apart-k-hr">
+        </div>
+    </section>
+
+    <section class="Still">
+        <div class="Still-k">
+            <h1 class="Still-k-h1">Still deciding where to stay?</h1>
+            <h3 class="Still-k-h3">We want to make your decision easier! With over 131,150,000 verified<br>guest reviews, we can help you find the perfect place to stay.</h3>
+            <p class="Still-k-hotel">Hotel reviews</p>
+            <p class="Still-k-bb">B&B & inn reviews</p>
+            <p class="Still-k-holiday">Holiday rental reviews</p>
+        </div>
+    </section>
+
+    <section class="Grid">
+        <div class="Grid-container">
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p">Edinburgh</p>
+                <p class="Grid-container-Grid-p1">283,435 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p2">Barcelona</p>
+                <p class="Grid-container-Grid-p3">1,000,938 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p4">Sydney</p>
+                <p class="Grid-container-Grid-p5">309,780 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p6">Sydney</p>
+                <p class="Grid-container-Grid-p7">309,780 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p8">Sydney</p>
+                <p class="Grid-container-Grid-p9">309,780 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p10">Bristol</p>
+                <p class="Grid-container-Grid-p11">74,345 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p12">Rome</p>
+                <p class="Grid-container-Grid-p13">1,222,001 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p14">Manchester</p>
+                <p class="Grid-container-Grid-p15">194,347 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p16">Manchester</p>
+                <p class="Grid-container-Grid-p17">194,347 hotel reviews</p>
+            </div>
+            <div class="Grid-container-Grid">
+                <p class="Grid-container-Grid-p18">Manchester</p>
+                <p class="Grid-container-Grid-p19">194,347 hotel reviews</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="savetime">
+        <div class="k">
+            <img class="savetime-k-img" src="img/alt_back.jpg" alt="altback">
+            <h2  class="savetime-k-h2">Save time, save money!</h2>
+            <p  class="savetime-k-p">Sign up and we'll send the best deals to you</p>
+            <img class="savetime-k-svg" src="img/mail.svg">
+            <input class="savetime-k-input" type="text" placeholder="Your email" value="">
+            <div class="savetime-k-subscribe">Subscribe</div>
+
+            <div class="savetime-k">
+                <label class="savetime-k-lab">
+                    Send me a link to get the FREE Booking.com app!
+                    <div class="savetime-k-lab-check">
+                        <input type="checkbox">
+                        <svg class="icon icon-check">
+                            <use xlink:href="#icon-check"></use>
+                        </svg>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <section class="Love">
+        <div class="Love-k">
+            <h1 class="Love-k-h1">Destinations we love</h1>
+            <p class="Love-k-hotel">Regions</p>
+            <p class="Love-k-bb">Cities</p>
+            <p class="Love-k-holiday">Palaces of interest</p>
+        </div>
+    </section>
+
+    <section class="Grid1">
+        <div class="Grid1-container">
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p">Edinburgh</p>
+                <p class="Grid1-container-Grid-p1">283,435 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p2">Barcelona</p>
+                <p class="Grid1-container-Grid-p3">1,000,938 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p4">Sydney</p>
+                <p class="Grid1-container-Grid-p5">309,780 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p6">Sydney</p>
+                <p class="Grid1-container-Grid-p7">309,780 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p8">Sydney</p>
+                <p class="Grid1-container-Grid-p9">309,780 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p10">Bristol</p>
+                <p class="Grid1-container-Grid-p11">74,345 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p12">Rome</p>
+                <p class="Grid1-container-Grid-p13">1,222,001 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p14">Manchester</p>
+                <p class="Grid1-container-Grid-p15">194,347 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p16">Manchester</p>
+                <p class="Grid1-container-Grid-p17">194,347 hotel reviews</p>
+            </div>
+            <div class="Grid1-container-Grid">
+                <p class="Grid1-container-Grid-p18">Manchester</p>
+                <p class="Grid1-container-Grid-p19">194,347 hotel reviews</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footerGrid">
+        <div class="footerGrid-box">
+            <p class="footerGrid-box-p1">Your account</p>
+            <p class="footerGrid-box-p2">Make changes to your booking online</p>
+            <p class="footerGrid-box-p3">Customer Service help</p>
+            <p class="footerGrid-box-p4">Become an affiliate</p>
+            <p class="footerGrid-box-p5">Booking.com for Business</p>
+            <p class="footerGrid-box-p6">List your property</p>
+        </div>
+        <hr class="footerGrid-hr">
+        <div class="footerGrid-box2">
+            <p class="footerGrid-box2-p1">Countries</p>
+            <p class="footerGrid-box2-p1">Holiday rentals</p>
+            <p class="footerGrid-box2-p1">All property types</p>
+            <p class="footerGrid-box2-p1">Car hire</p>
+            <p class="footerGrid-box2-p1">About Booking.com</p>
+            <p class="footerGrid-box2-p1">Regions</p>
+            <p class="footerGrid-box2-p1">Apartments</p>
+            <p class="footerGrid-box2-p1">All themes</p>
+            <p class="footerGrid-box2-p1">Flight finder</p>
+            <p class="footerGrid-box2-p1">Press centre</p>
+            <p class="footerGrid-box2-p1">Cities</p>
+            <p class="footerGrid-box2-p1">Resorts</p>
+            <p class="footerGrid-box2-p1">All destinations</p>
+            <p class="footerGrid-box2-p1">Restaurant reservations</p>
+            <p class="footerGrid-box2-p1">Terms & Conditions</p>
+            <p class="footerGrid-box2-p1">Districts</p>
+            <p class="footerGrid-box2-p1">Villas</p>
+            <p class="footerGrid-box2-p1">Reviews</p>
+            <p class="footerGrid-box2-p1">Seek&Go</p>
+            <p class="footerGrid-box2-p1">Privacy & Cookies</p>
+            <p class="footerGrid-box2-p1">Airports</p>
+            <p class="footerGrid-box2-p1">Hostels</p>
+            <p class="footerGrid-box2-p1">Travel articles</p>
+            <p class="footerGrid-box2-p1">For Travel Agents</p>
+            <p class="footerGrid-box2-p1">Contact us</p>
+        </div>
+        <img class="footerGrid-img" src="img/available-on-the-app-store.svg" alt="applewhite">
+        <img class="footerGrid-img1" src="img/get-it-on-google-play.svg" alt="playwhite">
+        <hr class="footerGrid-hr2">
+        <p class="footerGrid-lp">Booking.com B.V. is based in Amsterdam in<br>the Netherlands, and is supported<br> internationally by</p>
+        <p class="footerGrid-lp2">204 offices in 70 countries.</p>
+        <p class="footerGrid-llp">Copyright © 1996-2024 Booking.com™. All rights reserved.</p>
+    </section>
+</main>
+<!--   <script src="js/jquery-3.7.1.min.js"></script>
+   <<script src="js/flickity.pkgd.min.js"></script>   -->
+<script src="/js/main.js"></script>
+</body>
+</html>

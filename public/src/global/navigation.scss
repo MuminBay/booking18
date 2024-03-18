@@ -1,0 +1,44 @@
+.Navigation{
+  height: 50px;
+  background-color: $color-soft-blue;
+  width: 181%;
+  max-width: 200%;
+  overflow-x: hidden;
+  @include mq("tablet"){
+   height: 50px;
+   width: 100%;
+   background-color: $color-soft-blue;
+ }
+  .container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 70%;
+    @include mq("tablet"){
+      height: 100%;
+      display: flex;
+      align-items: center;
+      max-width: 100%;
+      width: 62.5%;
+
+    }
+  }
+
+  &-item {
+    margin-right: 70px;
+    font-size: 12px;
+    color: gray;
+    position:relative;
+    text-align: center;
+    @include mq("tablet"){
+      margin-right: 40px;
+      font-size: $font-size-small;
+      color: gray;
+      position:relative;
+      left: 2px;
+    }
+    &:hover{
+      color: $color-navy;
+    }
+  }
+}
